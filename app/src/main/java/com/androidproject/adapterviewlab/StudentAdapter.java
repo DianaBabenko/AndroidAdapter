@@ -13,7 +13,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StudentAdapter extends ArrayAdapter<Student>{
+public class StudentAdapter extends ArrayAdapter<Student> {
     private LayoutInflater inflater;
     private int layout;
     private ArrayList<Student> studentList;
@@ -40,6 +40,27 @@ public class StudentAdapter extends ArrayAdapter<Student>{
         viewHolder.nameView.setText(student.getName());
         viewHolder.markView.setText(Integer.toString(student.getMark()));
 
+
+        viewHolder.addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int mark = student.getMark() + 1;
+                student.setMark(mark);
+                viewHolder.markView.setText(mark);
+            }
+        });
+
+        viewHolder.removeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int mark = student.getMark() - 1;
+                if(mark<0) mark=3;
+                student.setMark(mark);
+                viewHolder.markView.setText(mark);
+            }
+            });
+
+
         return convertView;
     }
 
@@ -47,11 +68,10 @@ public class StudentAdapter extends ArrayAdapter<Student>{
     private class ViewHolder {
         final Button addButton, removeButton;
         final TextView nameView, markView;
-        ViewHolder(View view){
-            addButton = (Button)
-                    view.findViewById(R.id.addButton);
-            removeButton = (Button)
-                    view.findViewById(R.id.removeButton);
+
+        ViewHolder(View view) {
+            addButton = (Button) view.findViewById(R.id.addButton);
+            removeButton = (Button) view.findViewById(R.id.removeButton);
             nameView = (TextView) view.findViewById(R.id.nameView);
             markView = (TextView) view.findViewById(R.id.markView);
         }

@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
             students.add(new Student("EEEEE", 5));
         }
         studentList = (ListView)findViewById(R.id.studentList);
-        StudentAdapter adapter = new StudentAdapter(this, R.layout.activity_main, students);
+        StudentAdapter adapter = new StudentAdapter(this, R.layout.list_item, students);
         studentList.setAdapter(adapter);
     }
 
