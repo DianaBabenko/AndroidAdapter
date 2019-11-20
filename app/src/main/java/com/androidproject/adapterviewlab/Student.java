@@ -6,7 +6,7 @@ public class Student {
 
     public Student (String name, int mark) {
         this.name = name;
-        this.mark = mark;
+        this.mark = 0;
     }
 
     public String getName() {
