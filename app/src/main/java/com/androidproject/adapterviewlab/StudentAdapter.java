@@ -6,12 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
-import android.widget.Button;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class StudentAdapter extends ArrayAdapter<Student> {
     private LayoutInflater inflater;
@@ -37,16 +34,16 @@ public class StudentAdapter extends ArrayAdapter<Student> {
         }
         final Student student = studentList.get(position);
 
-        viewHolder.nameView.setText(student.getName());
-        viewHolder.markView.setText(Integer.toString(student.getMark()));
+        viewHolder.nameInput.setText(student.getName());
+        viewHolder.markInput.setText(Integer.toString(student.getMark()));
 
 
-        viewHolder.addButton.setOnClickListener(new View.OnClickListener() {
+        /*viewHolder.addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 int mark = student.getMark() + 1;
                 student.setMark(mark);
-                viewHolder.markView.setText(mark);
+                viewHolder.markInput.setText(mark);
             }
         });
 
@@ -56,9 +53,9 @@ public class StudentAdapter extends ArrayAdapter<Student> {
                 int mark = student.getMark() - 1;
                 if(mark<0) mark=3;
                 student.setMark(mark);
-                viewHolder.markView.setText(mark);
+                viewHolder.markInput.setText(mark);
             }
-            });
+            });*/
 
 
         return convertView;
@@ -66,14 +63,14 @@ public class StudentAdapter extends ArrayAdapter<Student> {
 
 
     private class ViewHolder {
-        final Button addButton, removeButton;
-        final TextView nameView, markView;
+       // final Button addButton, removeButton;
+        final TextView nameInput, markInput;
 
         ViewHolder(View view) {
-            addButton = (Button) view.findViewById(R.id.addButton);
-            removeButton = (Button) view.findViewById(R.id.removeButton);
-            nameView = (TextView) view.findViewById(R.id.nameView);
-            markView = (TextView) view.findViewById(R.id.markView);
+            /*addButton = (Button) view.findViewById(R.id.addButton);
+            removeButton = (Button) view.findViewById(R.id.removeButton);*/
+            nameInput =  view.findViewById(R.id.nameView);
+            markInput =  view.findViewById(R.id.markView);
         }
     }
 }
