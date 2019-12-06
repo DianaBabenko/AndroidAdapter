@@ -14,24 +14,13 @@ public class MainActivity extends AppCompatActivity {
     private EditText nameEditText;
     private EditText markEditText;
     ArrayList<Student> students = new ArrayList();
-    //ArrayAdapter<String> adapter;
     StudentAdapter adapter;
     Student studentItem;
-    ListView studentList;
-
 
     @Override
     protected void onCreate (Bundle savedInstanceStudent) {
         super.onCreate(savedInstanceStudent);
         setContentView(R.layout.activity_main);
-
-        if (students.size() == 0 ) {
-            students.add(new Student("AAAAA", 1));
-            students.add(new Student("BBBBB", 2));
-            students.add(new Student("CCCCC", 3));
-            students.add(new Student("DDDDD", 4));
-            students.add(new Student("EEEEE", 5));
-        }
 
         final ListView studentList = (ListView)findViewById(R.id.studentList);
         adapter = new StudentAdapter(this, R.layout.list_item, students);
@@ -53,34 +42,21 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    /*public void onButtonPressedRemove(View view) {
-        for (Student item : students) {
-            if (item.getName().equals(nameEditText.getText())) {
-                students.remove(studentList.(item));
-            } else {
-                nameEditText.setText("");
-            }
-        }
-        ListView studentList = (ListView)findViewById(R.id.studentList);
-        adapter = new StudentAdapter(this, R.layout.list_item, students);
-        studentList.setAdapter(adapter);
-    }*/
-
     public void onButtonPressedRemove(View view) {
         for(int i = 0; i < students.size(); i++) {
             students.remove(studentItem);
         }
-            ListView studentList = (ListView)findViewById(R.id.studentList);
-            adapter = new StudentAdapter(this, R.layout.list_item, students);
-            studentList.setAdapter(adapter);
         nameEditText.setText("");
         markEditText.setText("");
+        adapter.notifyDataSetChanged();
     }
 
     public void onButtonPressedAdd(View view) {
-        students.add(new Student(nameEditText.getText().toString(), Integer.valueOf(markEditText.getText().toString())));
-        ListView studentList = (ListView)findViewById(R.id.studentList);
-        adapter = new StudentAdapter(this, R.layout.list_item, students);
-        studentList.setAdapter(adapter);
+        if (markEditText.getText().length() != 0 && nameEditText.getText().length() != 0) {
+            students.add(new Student(nameEditText.getText().toString(), Integer.valueOf(markEditText.getText().toString())));
+        }
+        nameEditText.setText("");
+        markEditText.setText("");
+        adapter.notifyDataSetChanged();
     }
 }
