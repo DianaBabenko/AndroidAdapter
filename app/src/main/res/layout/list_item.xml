@@ -8,8 +8,7 @@
     <ListView
         android:id="@+id/studentList"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
+        android:layout_height="match_parent" />
 
     <TextView
         android:id="@+id/nameView"
@@ -18,8 +17,7 @@
         android:layout_weight="1"
         android:textSize="18sp"
         android:layout_margin="12dp"
-        android:gravity="left"
-        />
+        android:gravity="left" />
     <TextView
         android:id="@+id/markView"
         android:layout_width="match_parent"
@@ -27,6 +25,5 @@
         android:layout_weight="1"
         android:layout_margin="12dp"
         android:gravity="right"
-        android:textSize="18sp"
-        />
+        android:textSize="18sp" />
 </RelativeLayout>

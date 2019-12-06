@@ -38,7 +38,6 @@ public class StudentAdapter extends ArrayAdapter<Student> {
         return convertView;
     }
 
-
     private class ViewHolder {
         final TextView nameInput, markInput;
 
