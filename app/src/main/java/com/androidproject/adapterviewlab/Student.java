@@ -2,7 +2,7 @@ package com.androidproject.adapterviewlab;
 
 public class Student {
     private String name;
-    private int mark;
+    private int mark = 0;
 
     public Student (String name, int mark) {
         this.name = name;

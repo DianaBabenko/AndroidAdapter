@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">AdapterViewLab</string>
+    <string name="add">+</string>
+    <string name="remove">-</string>
+    <string name="name">name</string>
+    <string name="mark">mark</string>
 </resources>
